@@ -16,7 +16,7 @@ build:
   number: 0
   entry_points:
     - pkginfo = pkginfo.commandline:main
-  script: ${PYTHON} setup.py install  --single-version-externally-managed --record=record.txt
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
 
 requirements:
   host:
