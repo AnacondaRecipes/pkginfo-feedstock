@@ -1,7 +1,7 @@
 {% set name = "pkginfo" %}
-{% set version = "1.7.0" %}
+{% set version = "1.7.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "029a70cb45c6171c329dfc890cde0879f8c52d6f3922794796e06f577bb03db4" %}
+{% set hash_value = "e7432f81d08adec7297633191bbf0bd47faf13cd8724c3a13250e51d542635bd" %}
 
 package:
   name: '{{ name|lower }}'
@@ -21,7 +21,9 @@ build:
 requirements:
   host:
     - python
+    - pip
     - setuptools
+    - wheel
   run:
     - python
 
