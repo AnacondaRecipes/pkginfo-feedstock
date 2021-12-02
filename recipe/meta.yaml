@@ -1,7 +1,7 @@
 {% set name = "pkginfo" %}
-{% set version = "1.7.1" %}
+{% set version = "1.8.2" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "e7432f81d08adec7297633191bbf0bd47faf13cd8724c3a13250e51d542635bd" %}
+{% set hash_value = "542e0d0b6750e2e21c20179803e40ab50598d8066d51097a0e382cba9eb02bff" %}
 
 package:
   name: '{{ name|lower }}'
