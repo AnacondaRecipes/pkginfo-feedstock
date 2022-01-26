@@ -1,5 +1,5 @@
 {% set name = "pkginfo" %}
-{% set version = "1.7.1" %}
+{% set version = "1.8.2" %}
 {% set hash_type = "sha256" %}
 {% set hash_value = "e7432f81d08adec7297633191bbf0bd47faf13cd8724c3a13250e51d542635bd" %}
 
@@ -8,31 +8,34 @@ package:
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.tar.gz'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  '{{ hash_type }}': '{{ hash_value }}'
+  url: https://pypi.io/packages/source/p/pkginfo/pkginfo-{{ version }}.tar.gz
+  sha256: 542e0d0b6750e2e21c20179803e40ab50598d8066d51097a0e382cba9eb02bff
 
 build:
+  noarch: python
   number: 0
   entry_points:
     - pkginfo = pkginfo.commandline:main
-  script: python setup.py install  --single-version-externally-managed --record=record.txt
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
     - setuptools
     - wheel
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
     - pkginfo
     - pkginfo.tests
   commands:
+    - pip check
     - pkginfo --help
+  requires:
+    - pip
 
 about:
   home: https://code.launchpad.net/~tseaver/pkginfo/trunk
