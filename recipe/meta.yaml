@@ -1,5 +1,5 @@
 {% set name = "pkginfo" %}
-{% set version = "1.8.2" %}
+{% set version = "1.8.3" %}
 {% set hash_type = "sha256" %}
 {% set hash_value = "e7432f81d08adec7297633191bbf0bd47faf13cd8724c3a13250e51d542635bd" %}
 
@@ -9,23 +9,23 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pkginfo/pkginfo-{{ version }}.tar.gz
-  sha256: 542e0d0b6750e2e21c20179803e40ab50598d8066d51097a0e382cba9eb02bff
+  sha256: a84da4318dd86f870a9447a8c98340aa06216bfc6f2b7bdc4b8766984ae1867c
 
 build:
-  noarch: python
   number: 0
+  skip: True  # [py<36]
   entry_points:
     - pkginfo = pkginfo.commandline:main
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - setuptools
     - wheel
   run:
-    - python >=3.6
+    - python
 
 test:
   imports:
@@ -47,7 +47,7 @@ about:
     This package provides an API for querying the distutils metadata written in
     the ``PKG-INFO`` file inside a source distriubtion (an ``sdist``) or
     a binary distribution (e.g., created by running ``bdist_egg``)
-  doc_url: http://pythonhosted.org/pkginfo/
+  doc_url: https://pythonhosted.org/pkginfo/
   dev_url: https://code.launchpad.net/~tseaver/pkginfo/trunk
 
 extra:
