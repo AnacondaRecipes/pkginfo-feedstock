@@ -13,10 +13,10 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<36]
+  skip: True  # [py<38]
   entry_points:
     - pkginfo = pkginfo.commandline:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
   host:
